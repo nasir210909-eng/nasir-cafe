@@ -1,8 +1,23 @@
-import { CheckCircle2, Clock, MapPin, X } from 'lucide-react'
+import { CheckCircle2, Clock, MapPin, X, Navigation, Share2 } from 'lucide-react'
 import siteConfig from '../config/siteConfig'
 import { formatPrice } from '../utils/orderUtils'
 
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  siteConfig.contact.address
+)}`
+
 export default function OrderConfirmation({ order, onClose }) {
+  const isPickup = order.deliveryType === 'pickup'
+
+  const handleShareLocation = () => {
+    const shareText = `${siteConfig.name} — ${siteConfig.contact.address}\n${mapsUrl}`
+    if (navigator.share) {
+      navigator.share({ title: siteConfig.name, text: shareText, url: mapsUrl }).catch(() => {})
+    } else {
+      window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank', 'noopener,noreferrer')
+    }
+  }
+
   return (
     <div className="fixed inset-0 z-[97] flex items-end justify-center bg-ink/70 backdrop-blur-sm sm:items-center sm:p-4">
       <div className="animate-slide-up relative max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-3xl bg-white p-6 shadow-card sm:animate-scale-in sm:rounded-3xl sm:p-8">
@@ -66,6 +81,26 @@ export default function OrderConfirmation({ order, onClose }) {
               {order.deliveryType === 'delivery' ? 'Estimated delivery: 30–40 minutes' : 'Ready for pickup in 15–20 minutes'}
             </span>
           </div>
+
+          {isPickup && (
+            <div className="mt-1 grid grid-cols-2 gap-3">
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-full bg-espresso px-3 py-2.5 text-sm font-semibold text-cream transition hover:-translate-y-0.5 hover:bg-ink"
+              >
+                <Navigation size={15} /> Get Directions
+              </a>
+              <button
+                type="button"
+                onClick={handleShareLocation}
+                className="flex items-center justify-center gap-2 rounded-full bg-gold px-3 py-2.5 text-sm font-semibold text-espresso transition hover:-translate-y-0.5 hover:bg-gold-light"
+              >
+                <Share2 size={15} /> Share Location
+              </button>
+            </div>
+          )}
         </div>
 
         <p className="mt-5 text-center text-xs text-espresso/45">
