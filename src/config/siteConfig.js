@@ -23,7 +23,7 @@ const siteConfig = {
     address: 'Sheikh Zayed Road, Dubai, UAE',
     city: 'Dubai, UAE',
     phone: '+971 54 597 7360',
-    phoneDisplay: '+971 54 597 7360',
+    phoneDisplay: '+971 XX XXX XXXX',
     whatsapp: '971545977360',
     email: 'nasir210909@gmail.com',
   },
