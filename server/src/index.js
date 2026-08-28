@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { ensureSchema } from './db.js'
 import ordersRouter from './routes/orders.js'
+import adminRouter from './routes/admin.js'
 
 const app = express()
 const port = process.env.PORT || 4000
@@ -22,6 +23,7 @@ app.get('/api/health', (req, res) => {
 })
 
 app.use('/api', ordersRouter)
+app.use('/api', adminRouter)
 
 async function start() {
   await ensureSchema()

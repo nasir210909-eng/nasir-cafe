@@ -15,6 +15,7 @@ import Checkout from './components/Checkout'
 import OrderConfirmation from './components/OrderConfirmation'
 import BackToTop from './components/BackToTop'
 import MobileOrderBar from './components/MobileOrderBar'
+import AdminPage from './components/AdminPage'
 import { useCart } from './context/CartContext'
 
 export default function App() {
@@ -39,6 +40,10 @@ export default function App() {
   const handlePlaceOrder = (order) => {
     setCheckoutOpen(false)
     setConfirmedOrder(order)
+  }
+
+  if (typeof window !== 'undefined' && window.location.pathname.startsWith('/admin')) {
+    return <AdminPage />
   }
 
   return (
