@@ -12,7 +12,7 @@ export default function MobileOrderBar() {
     <button
       type="button"
       onClick={openCart}
-      className="animate-slide-up fixed inset-x-4 bottom-4 z-40 flex items-center justify-between rounded-full bg-espresso px-5 py-3.5 text-cream shadow-card sm:hidden"
+      className="animate-slide-up fixed inset-x-4 bottom-4 z-40 flex items-center justify-between rounded-full bg-espresso px-5 py-3.5 text-cream shadow-card transition-transform duration-150 active:scale-[0.97] sm:hidden"
     >
       <span className="flex items-center gap-2 text-sm font-semibold">
         <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gold text-espresso">

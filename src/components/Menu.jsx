@@ -48,7 +48,7 @@ export default function Menu({
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-150 active:scale-90 ${
                   activeCategory === cat.id
                     ? 'bg-espresso text-cream shadow-card'
                     : 'bg-white text-espresso/70 hover:bg-cream-dark'

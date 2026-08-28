@@ -57,7 +57,7 @@ export default function Offers() {
                 <button
                   type="button"
                   onClick={scrollToMenu}
-                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition hover:gap-2.5"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition hover:gap-2.5 active:text-gold-light"
                 >
                   View Offers <ArrowRight size={15} />
                 </button>

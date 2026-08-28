@@ -42,7 +42,7 @@ export default function Cart({ onCheckout }) {
             type="button"
             aria-label="Close cart"
             onClick={closeCart}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-espresso transition hover:bg-cream-dark"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-espresso transition hover:bg-cream-dark active:scale-90"
           >
             <X size={19} />
           </button>
@@ -80,7 +80,7 @@ export default function Cart({ onCheckout }) {
                             type="button"
                             aria-label={`Remove ${item.name}`}
                             onClick={() => removeFromCart(item.lineKey)}
-                            className="shrink-0 text-espresso/40 transition hover:text-red-500"
+                            className="shrink-0 text-espresso/40 transition active:scale-90 hover:text-red-500"
                           >
                             <Trash2 size={16} />
                           </button>

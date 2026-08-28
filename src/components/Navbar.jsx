@@ -115,7 +115,7 @@ export default function Navbar({ onSearch }) {
               type="button"
               aria-label="Search menu"
               onClick={() => setSearchOpen((v) => !v)}
-              className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-150 active:scale-90 ${
                 scrolled ? 'text-espresso hover:bg-cream-dark' : 'text-cream hover:bg-white/10'
               }`}
             >
@@ -142,7 +142,7 @@ export default function Navbar({ onSearch }) {
             type="button"
             aria-label={`Open cart, ${cartCount} items`}
             onClick={toggleCart}
-            className={`relative flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
+            className={`relative flex h-10 w-10 items-center justify-center rounded-full transition-all duration-150 active:scale-90 ${
               scrolled ? 'text-espresso hover:bg-cream-dark' : 'text-cream hover:bg-white/10'
             }`}
           >
@@ -170,7 +170,7 @@ export default function Navbar({ onSearch }) {
             type="button"
             aria-label="Toggle menu"
             onClick={() => setMobileOpen((v) => !v)}
-            className={`lg:hidden flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
+            className={`lg:hidden flex h-10 w-10 items-center justify-center rounded-full transition-all duration-150 active:scale-90 ${
               scrolled ? 'text-espresso hover:bg-cream-dark' : 'text-cream hover:bg-white/10'
             }`}
           >

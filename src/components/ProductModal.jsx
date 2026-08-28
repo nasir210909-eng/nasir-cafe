@@ -61,7 +61,7 @@ export default function ProductModal({ item, onClose }) {
             type="button"
             aria-label="Close"
             onClick={onClose}
-            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-espresso shadow-soft transition hover:bg-white"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-espresso shadow-soft transition hover:bg-white active:scale-90"
           >
             <X size={18} />
           </button>
@@ -110,7 +110,7 @@ export default function ProductModal({ item, onClose }) {
                     key={opt.id}
                     type="button"
                     onClick={() => toggleCustomization(opt.id)}
-                    className={`flex items-center justify-between rounded-xl border px-3 py-2.5 text-sm font-medium transition-all ${
+                    className={`flex items-center justify-between rounded-xl border px-3 py-2.5 text-sm font-medium transition-all duration-150 active:scale-95 ${
                       active
                         ? 'border-gold bg-gold/10 text-espresso'
                         : 'border-cream-dark text-espresso/70 hover:border-gold/60'

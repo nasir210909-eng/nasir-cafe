@@ -72,7 +72,7 @@ export default function Footer() {
                       e.preventDefault()
                       scrollTo(link.href)
                     }}
-                    className="transition hover:text-gold"
+                    className="transition active:text-gold-light hover:text-gold"
                   >
                     {link.label}
                   </a>
@@ -87,17 +87,17 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 flex flex-col gap-2.5 text-sm">
               <li>
-                <button type="button" onClick={() => scrollTo('#menu')} className="transition hover:text-gold">
+                <button type="button" onClick={() => scrollTo('#menu')} className="transition active:text-gold-light hover:text-gold">
                   Order Now
                 </button>
               </li>
               <li>
-                <button type="button" onClick={toggleCart} className="transition hover:text-gold">
+                <button type="button" onClick={toggleCart} className="transition active:text-gold-light hover:text-gold">
                   Cart
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => scrollTo('#contact')} className="transition hover:text-gold">
+                <button type="button" onClick={() => scrollTo('#contact')} className="transition active:text-gold-light hover:text-gold">
                   Delivery Information
                 </button>
               </li>
@@ -114,7 +114,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition hover:bg-gold hover:text-espresso"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition active:scale-90 hover:bg-gold hover:text-espresso"
               >
                 <InstagramIcon width={17} height={17} />
               </a>
@@ -123,7 +123,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition hover:bg-gold hover:text-espresso"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition active:scale-90 hover:bg-gold hover:text-espresso"
               >
                 <FacebookIcon width={17} height={17} />
               </a>
@@ -132,7 +132,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition hover:bg-gold hover:text-espresso"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition active:scale-90 hover:bg-gold hover:text-espresso"
               >
                 <TikTokIcon width={16} height={16} />
               </a>
@@ -141,7 +141,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition hover:bg-gold hover:text-espresso"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-cream/10 transition active:scale-90 hover:bg-gold hover:text-espresso"
               >
                 <MessageCircle size={17} />
               </a>

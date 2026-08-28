@@ -19,7 +19,7 @@ export default function CategoryCards({ onSelectCategory }) {
               type="button"
               onClick={() => handleClick(cat.id)}
               style={{ animationDelay: `${idx * 0.05}s` }}
-              className="animate-fade-in group flex flex-col items-center gap-2 rounded-xl p-2.5 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-cream"
+              className="animate-fade-in group flex flex-col items-center gap-2 rounded-xl p-2.5 text-center transition-all duration-150 hover:-translate-y-1 hover:bg-cream active:scale-90 active:bg-cream"
             >
               <FoodImage
                 src={categoryImages[cat.id]}

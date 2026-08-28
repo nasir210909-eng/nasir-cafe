@@ -17,7 +17,7 @@ export default function MenuCard({ item, onOpenDetails }) {
   return (
     <article
       onClick={() => onOpenDetails(item)}
-      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card"
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl bg-white shadow-soft transition-all duration-150 hover:-translate-y-1.5 hover:shadow-card active:scale-[0.98] active:shadow-soft"
     >
       <div className="relative overflow-hidden">
         <FoodImage

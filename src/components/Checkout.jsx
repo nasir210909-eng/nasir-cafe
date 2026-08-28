@@ -56,7 +56,7 @@ export default function Checkout({ onClose, onPlaceOrder }) {
             type="button"
             aria-label="Back to cart"
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-espresso transition hover:bg-cream-dark"
+            className="flex h-9 w-9 items-center justify-center rounded-full text-espresso transition hover:bg-cream-dark active:scale-90"
           >
             <ArrowLeft size={18} />
           </button>
@@ -65,7 +65,7 @@ export default function Checkout({ onClose, onPlaceOrder }) {
             type="button"
             aria-label="Close"
             onClick={onClose}
-            className="ml-auto flex h-9 w-9 items-center justify-center rounded-full text-espresso transition hover:bg-cream-dark"
+            className="ml-auto flex h-9 w-9 items-center justify-center rounded-full text-espresso transition hover:bg-cream-dark active:scale-90"
           >
             <X size={18} />
           </button>
@@ -76,7 +76,7 @@ export default function Checkout({ onClose, onPlaceOrder }) {
             <button
               type="button"
               onClick={() => setDeliveryType('delivery')}
-              className={`flex flex-col items-center gap-1.5 rounded-xl border-2 py-3.5 text-sm font-semibold transition-all ${
+              className={`flex flex-col items-center gap-1.5 rounded-xl border-2 py-3.5 text-sm font-semibold transition-all duration-150 active:scale-95 ${
                 deliveryType === 'delivery'
                   ? 'border-gold bg-gold/10 text-espresso'
                   : 'border-cream-dark text-espresso/60 hover:border-gold/60'
@@ -87,7 +87,7 @@ export default function Checkout({ onClose, onPlaceOrder }) {
             <button
               type="button"
               onClick={() => setDeliveryType('pickup')}
-              className={`flex flex-col items-center gap-1.5 rounded-xl border-2 py-3.5 text-sm font-semibold transition-all ${
+              className={`flex flex-col items-center gap-1.5 rounded-xl border-2 py-3.5 text-sm font-semibold transition-all duration-150 active:scale-95 ${
                 deliveryType === 'pickup'
                   ? 'border-gold bg-gold/10 text-espresso'
                   : 'border-cream-dark text-espresso/60 hover:border-gold/60'
@@ -178,7 +178,7 @@ export default function Checkout({ onClose, onPlaceOrder }) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('cod')}
-                  className={`flex items-center justify-center gap-2 rounded-xl border-2 py-3 text-sm font-semibold transition-all ${
+                  className={`flex items-center justify-center gap-2 rounded-xl border-2 py-3 text-sm font-semibold transition-all duration-150 active:scale-95 ${
                     paymentMethod === 'cod'
                       ? 'border-gold bg-gold/10 text-espresso'
                       : 'border-cream-dark text-espresso/60 hover:border-gold/60'
@@ -189,7 +189,7 @@ export default function Checkout({ onClose, onPlaceOrder }) {
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('card')}
-                  className={`flex items-center justify-center gap-2 rounded-xl border-2 py-3 text-sm font-semibold transition-all ${
+                  className={`flex items-center justify-center gap-2 rounded-xl border-2 py-3 text-sm font-semibold transition-all duration-150 active:scale-95 ${
                     paymentMethod === 'card'
                       ? 'border-gold bg-gold/10 text-espresso'
                       : 'border-cream-dark text-espresso/60 hover:border-gold/60'

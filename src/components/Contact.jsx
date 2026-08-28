@@ -49,7 +49,7 @@ export default function Contact() {
           <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
-              className="flex items-center justify-center gap-2 rounded-full bg-espresso px-4 py-3 text-sm font-semibold text-cream shadow-soft transition hover:-translate-y-0.5 hover:bg-ink"
+              className="flex items-center justify-center gap-2 rounded-full bg-espresso px-4 py-3 text-sm font-semibold text-cream shadow-soft transition hover:-translate-y-0.5 hover:bg-ink active:scale-95 active:translate-y-0"
             >
               <Phone size={16} /> Call
             </a>
@@ -57,13 +57,13 @@ export default function Contact() {
               href={siteConfig.social.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full bg-green-600 px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-green-700"
+              className="flex items-center justify-center gap-2 rounded-full bg-green-600 px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-green-700 active:scale-95 active:translate-y-0"
             >
               <MessageCircle size={16} /> WhatsApp
             </a>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="flex items-center justify-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-semibold text-espresso shadow-soft transition hover:-translate-y-0.5 hover:bg-gold-light"
+              className="flex items-center justify-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-semibold text-espresso shadow-soft transition hover:-translate-y-0.5 hover:bg-gold-light active:scale-95 active:translate-y-0"
             >
               <Mail size={16} /> Email
             </a>
