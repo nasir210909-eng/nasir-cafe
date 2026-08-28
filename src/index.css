@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-espresso font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+::selection {
+  @apply bg-gold/30 text-espresso;
+}
+
+/* Slim, on-brand scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F2E7D5;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A24B;
+  border-radius: 999px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3 font-semibold text-espresso shadow-gold transition-all duration-300 hover:bg-gold-light hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream/80 px-6 py-3 font-semibold text-cream transition-all duration-300 hover:bg-cream hover:text-espresso hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-espresso px-6 py-3 font-semibold text-cream shadow-card transition-all duration-300 hover:bg-ink hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+  }
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-display font-bold text-espresso;
+  }
+  .section-eyebrow {
+    @apply text-gold-dark font-semibold tracking-[0.2em] uppercase text-xs sm:text-sm;
+  }
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes bump {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+.animate-bump {
+  animation: bump 0.35s ease-out;
+}
