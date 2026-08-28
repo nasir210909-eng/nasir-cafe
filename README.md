@@ -115,6 +115,20 @@ placeholder if a URL is ever broken or replaced with something invalid — so sw
 5. **Looking an order up** — `GET /api/orders/:orderNumber` returns a saved order (used internally
    for verification; there's no "track my order" screen in the UI yet).
 
+## Admin dashboard
+
+Visit `/admin` on the live site for a login-protected, read-only list of every order received.
+
+- Backend: `POST /api/admin/login` checks the submitted username/password against the
+  `ADMIN_USERNAME`/`ADMIN_PASSWORD` env vars and returns an HMAC-signed session token (12-hour
+  expiry, signed with `ADMIN_TOKEN_SECRET`) — see `server/src/auth.js`. `GET /api/admin/orders` is
+  the only route that requires it.
+- Frontend: `AdminPage.jsx` shows `AdminLogin.jsx` or `AdminDashboard.jsx` depending on whether a
+  token is in `localStorage`; the dashboard fetches orders with that token and logs out
+  automatically if the API ever returns 401 (e.g. after the token expires).
+- There's no signup flow and no way to change the password from the UI — rotate it by updating
+  `ADMIN_PASSWORD` on the `api` service and redeploying.
+
 ## What's still missing for a full production system
 
 - **Authentication** for customer accounts and order history.
