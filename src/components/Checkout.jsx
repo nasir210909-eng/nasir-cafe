@@ -12,11 +12,14 @@ const initialForm = {
   notes: '',
 }
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000'
+
 export default function Checkout({ onClose, onPlaceOrder }) {
   const { items, subtotal, deliveryFee, total, clearCart } = useCart()
   const [form, setForm] = useState(initialForm)
   const [deliveryType, setDeliveryType] = useState('delivery')
   const [paymentMethod, setPaymentMethod] = useState('cod')
+  const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -27,13 +30,11 @@ export default function Checkout({ onClose, onPlaceOrder }) {
 
   const handleChange = (field) => (e) => setForm((prev) => ({ ...prev, [field]: e.target.value }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitting(true)
 
-    // FRONTEND-ONLY SIMULATION: no request is sent anywhere. In a future
-    // version this payload would be posted to an Order Service / API.
-    const order = {
-      orderNumber: generateOrderNumber(),
+    const payload = {
       customer: form,
       deliveryType,
       paymentMethod,
@@ -41,11 +42,29 @@ export default function Checkout({ onClose, onPlaceOrder }) {
       subtotal,
       deliveryFee: deliveryType === 'pickup' ? 0 : deliveryFee,
       total: deliveryType === 'pickup' ? subtotal : total,
-      placedAt: new Date().toISOString(),
+    }
+
+    // Save the order to the backend so it's persisted for real. If the API
+    // is unreachable, fall back to a locally-generated number so checkout
+    // still completes for the customer.
+    let orderNumber
+    try {
+      const response = await fetch(`${API_URL}/api/orders`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!response.ok) throw new Error('Order save failed')
+      const saved = await response.json()
+      orderNumber = saved.orderNumber
+    } catch (err) {
+      console.error('Could not reach order API, using a local order number instead.', err)
+      orderNumber = generateOrderNumber()
     }
 
     clearCart()
-    onPlaceOrder(order)
+    onPlaceOrder({ orderNumber, placedAt: new Date().toISOString(), ...payload })
+    setSubmitting(false)
   }
 
   return (
@@ -227,8 +246,8 @@ export default function Checkout({ onClose, onPlaceOrder }) {
             </div>
           </div>
 
-          <button type="submit" className="btn-primary mt-5 w-full">
-            Place Order
+          <button type="submit" disabled={submitting} className="btn-primary mt-5 w-full disabled:opacity-60">
+            {submitting ? 'Placing Order…' : 'Place Order'}
           </button>
         </form>
       </div>
